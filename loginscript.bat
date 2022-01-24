@@ -1,0 +1,1 @@
+curl -d "@datal.json" -X POST http://localhost:3000/login
