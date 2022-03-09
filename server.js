@@ -3,12 +3,14 @@ const bodyParser = require('body-parser');
 const https = require('https');
 const fs = require('fs')
 
-const port = port;
+const port = 443;
 const md5 = require('md5');
 
 const app = express();
 
 app.use(bodyParser.json());
+
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
     res.send('Hello HTTPS');
