@@ -8,6 +8,8 @@ const md5 = require('md5');
 
 const app = express();
 
+let badLoginAttempts = 0;
+
 app.use(bodyParser.json());
 
 app.use(express.static('public'));
@@ -28,6 +30,9 @@ app.post('/login', (req,res) =>{
     if(req.body.userName == "A" && md5(req.body.password) == "9d5ed678fe57bcca610140957afab571"){
         res.send("Welcome!")
     } else{
+        badLoginAttempts ++;
+        console.log(badLoginAttempts + " invalid attempts")
+        res.status(401);//no good
         res.send("New API who dis?");
     }
 });
