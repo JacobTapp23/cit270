@@ -56,6 +56,11 @@ function userlogin(){
         success: function(data) {
             window.location.href = "/timer.html#"+data;//add the token to the url
         },
+        error: function(data, textStatus,xhr){
+            console.log('text status ' + textStatus);
+            console.log('xhr status '+xhr.status);
+            alert('Incorrect password.');
+        },
         contentType: "application/json",
         dataType: 'text'
     });
